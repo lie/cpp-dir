@@ -30,3 +30,12 @@
 *.exe
 *.out
 *.app
+
+# binary files
+/bin/*
+
+# object files
+/obj/*
+
+# gitkeep
+!.gitkeep

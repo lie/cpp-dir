@@ -1,5 +1,4 @@
-# Multi-Environment Version ( macOS and Cygwin )
-
+# コンパイラ、オプション等の設定。必要に応じて変更する
 CC      = g++
 CFLAGS  = -g -MMD -MP -std=c++14
 LDFLAGS =
@@ -7,24 +6,18 @@ LIBS    =
 MKDIR   = mkdir
 RM      = rm
 
-# Detect environment
-ifeq "$(shell uname | awk '$$0 = substr($$0, 1, 6)')" "Darwin"
-	ENV = mac
-else ifeq "$(shell uname | awk '$$0 = substr($$0, 1, 6)')" "CYGWIN"
-	ENV = cygwin
-else
-	ENV = other
-endif
-
+# ターゲット等の変数の宣言
+MFDIR   = $(shell basename `readlink -f .`)
 BINDIR  = ./bin
-TARGET  = $(BINDIR)/$(ENV)
+TARGET  = $(BINDIR)/$(MFDIR)
 INCLUDE = -I./include
 SRCDIR  = ./src
 SOURCES = $(wildcard $(SRCDIR)/*.cpp)
-OBJDIR  = ./obj/$(ENV)
+OBJDIR  = ./obj
 OBJECTS = $(addprefix $(OBJDIR)/, $(notdir $(SOURCES:.cpp=.o)))
 DEPENDS = $(OBJECTS:.o=.d)
 
+# 単に `make` を実行すると、先頭のこれが実行される
 $(TARGET): $(OBJECTS) $(LIBS)
 	$(CC) -o $@ $^ $(LDFLAGS)
 
@@ -32,8 +25,10 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	$(MKDIR) -p $(OBJDIR)
 	$(CC) $(CFLAGS) $(INCLUDE) -o $@ -c $<
 
+# `make all` で、強制的に全ソースを再コンパイルする
 all: clean $(TARGET)
 
+# `make clean` で、全ての中間ファイル・実行ファイルを削除する
 clean:
 	$(RM) -f $(OBJECTS) $(DEPENDS) $(TARGET)
 
