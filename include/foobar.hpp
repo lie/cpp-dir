@@ -1,6 +1,6 @@
 /**
  * @file foobar.hpp
- * @brief サンプルファイル
+ * @brief サンプルファイル（foobar.hpp）
  * @author Lie.
  * @date 1970/01/01
  */
