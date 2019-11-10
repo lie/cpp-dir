@@ -5,21 +5,28 @@ Generic Makefile and directory structure for C++
 
 ```
 📁 example/
+┃
 ┣━📁 bin/
-┃  ┗━📄 example    -- Executable file
-┣━📁 src/           -- cpp source files
+┃  ┗━📄 example     -- Executable file
+┃
+┣━📁 src/           -- .cpp source files
 ┃  ┣━📄 main.cpp
-┃  ┗━📄 hoge.cpp
-┣━📁 include/       -- hpp header files
+┃  ┣━📄 bar.cpp
+┃  ┗━📁 dirsample/
+┃     ┗━📄 foo.cpp
+┃
+┣━📁 include/       -- .hpp header files
 ┃  ┣━📄 alllib.hpp
-┃  ┗━📄 hoge.hpp
-┣━📁 obj/           -- .o object files and .d files
+┃  ┗━📄 foobar.hpp
+┃
+┣━📁 obj/           -- .o object files and .d dependency files
 ┃  ┣━📄 main.d
 ┃  ┣━📄 main.o
 ┃  ┣━📄 hoge.d
 ┃  ┗━📄 hoge.o
-┣━📁 script/
-┃  ┗━📄 class.sh   -- for class coding
+┃
+┣━📁 docs/          -- Doxygen HTML documents
+┃ 
 ┗━📄 Makefile
 ```
 
