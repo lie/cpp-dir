@@ -20,10 +20,13 @@ Generic Makefile and directory structure for C++
 ┃  ┗━📄 foobar.hpp
 ┃
 ┣━📁 obj/           -- .o object files and .d dependency files
-┃  ┣━📄 main.d
 ┃  ┣━📄 main.o
-┃  ┣━📄 hoge.d
-┃  ┗━📄 hoge.o
+┃  ┣━📄 main.d
+┃  ┣━📄 bar.o
+┃  ┣━📄 bar.d
+┃  ┗━📁 dirsample/
+┃     ┣━📄 foo.o
+┃     ┗━📄 foo.d
 ┃
 ┣━📁 docs/          -- Doxygen HTML documents
 ┃ 
