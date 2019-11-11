@@ -36,10 +36,10 @@ $(OBJDIR): $(SRCDIR)
 	@mkdir -p $(OBJDIR)
 	@cd $(SRCDIR) && find . -type d | xargs -I{} mkdir -p $(OBJDIR)/{}
 
-# 実効ファイルを生成する
+# 実行ファイルを生成する
 build: $(TARGET)
 
-# 実効ファイルを生成して、それを実行する
+# 実行ファイルを生成して、それを実行する
 run: $(TARGET)
 	@$(TARGET)
 
